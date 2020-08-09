@@ -2,9 +2,11 @@ CREATE TABLE "todo" (
 "id" serial PRIMARY KEY,
 "task_name" VARCHAR(25) NOT NULL,
 "task_type" VARCHAR(15) NOT NULL,
-"task_due" DATE,
+"task_due" VARCHAR(15) NOT NULL,
 "task_notes" VARCHAR(255),
-"task_status" VARCHAR (80) DEFAULT 'Not done.'
+"task_complete" VARCHAR (20) DEFAULT 'NO',
+"task_delete" VARCHAR (20) DEFAULT 'NO'
+
 );
 
 INSERT INTO "todo" ("task_name", "task_type", "task_due")

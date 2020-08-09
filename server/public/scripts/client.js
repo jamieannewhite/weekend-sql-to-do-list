@@ -20,6 +20,7 @@ function setupClickListeners() {
             type: $('#task-type-in').val(),
             date: $('#task-due-in').val(),
             notes: $('#task-notes-in').val(),
+            
 
         };
         saveToDo(todoSend);
