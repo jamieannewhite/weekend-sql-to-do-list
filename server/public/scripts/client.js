@@ -4,6 +4,8 @@ $(document).ready(function () {
     console.log('JQready');
     setupClickListeners();
     getTodo();
+    $('#view-todo').on('click', '.deleteBtn', deleteTodo);
+
 
     /*     setupClickListeners();
      */
@@ -22,7 +24,7 @@ function setupClickListeners() {
         };
         saveToDo(todoSend);
     });
-    $('#viewKoalas').on('click', '.deleteBtn', deleteTodo);
+    $('#viewTodo').on('click', '.deleteBtn', deleteTodo);
 
 };
 
@@ -78,8 +80,29 @@ function getTodo() {
             $tr.append(`<td>${todo.task_type}</td>`);
             $tr.append(`<td>${todo.task_due}</td>`);
             $tr.append(`<td>${todo.task_notes}</td>`);
+            $tr.append(`<td><button class ="completeBtn">COMPLETE</button></td>`);
+            $tr.append(`<td><button class ="deleteBtn">DELETE</button></td>`);
+        
             $('#view-todo').append($tr);
-        }
+        };
 
 
-     } 
+     };
+
+     function deleteTodo (){
+         let todoDelete = $(this).closest('tr').data('todo');
+         console.log(todoDelete);
+         $.ajax({
+            method: 'DELETE',
+            url: `/todo/${todoDelete}` //change the URL based on what you want to delete
+            //data: {id: idToDelete} will not work in DELETE
+        }).then(function (response) {
+            console.log(response);
+            getTodo;
+    
+        }).catch(function (error) {
+    
+        });
+
+
+     };
