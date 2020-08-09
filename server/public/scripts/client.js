@@ -20,11 +20,10 @@ function setupClickListeners() {
             notes: $('#task-notes-in').val(),
 
         };
-
         saveToDo(todoSend);
-
-
     });
+    $('#viewKoalas').on('click', '.deleteBtn', deleteTodo);
+
 };
 
 //POST REQUEST SAVE TODO
@@ -75,11 +74,11 @@ function getTodo() {
             let todo = response[i];
             let $tr = $('<tr></tr>');
             $tr.data('todo', todo.id);
-            $tr.append(`<td>${todo.name}</td>`);
-            $tr.append(`<td>${todo.type}</td>`);
-            $tr.append(`<td>${todo.date}</td>`);
-            $tr.append(`<td>${todo.notes}</td>`);
-
+            $tr.append(`<td>${todo.task_name}</td>`);
+            $tr.append(`<td>${todo.task_type}</td>`);
+            $tr.append(`<td>${todo.task_due}</td>`);
+            $tr.append(`<td>${todo.task_notes}</td>`);
+            $('#view-todo').append($tr);
         }
 
 
