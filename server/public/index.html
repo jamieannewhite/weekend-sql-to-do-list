@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To Do List</title>
     <script src="./vendors/jquery-3.5.1.min.js"></script>
     <script src="./scripts/client.js"></script>
 </head>
+<h1>What chu gonna do...?</h1>
+<section id="add-task">
+    <h2>I'm gonna...</h2>
+    <h3></h3>
+    <input type="text" id="task-name" value="" placeholder="Task Name">
+    <input type="text" id="task-type" value="" placeholder="Task Type">
+    <input type="text" id="task-due" value="" placeholder="Task Due Date">
+    <input type="text" id="task-notes" value="" placeholder="Notes">
+    <button type="button" id="add-task-button"> Let's do it!</button>
+</section>
+<section>
+    <table>
+        <thead>
+          <tr>
+            <th>Task Name</th>
+            <th>Task Type</th>
+            <th>Task Due Date</th>
+            <th>Notes</th>
+            <th>Remove Task</th>
+          </tr>
+        </thead>
+        <tbody id="view-tasks">
+        </tbody>
+      </table>
+
+</section>
 <body>
-    
+
 </body>
+
 </html>
