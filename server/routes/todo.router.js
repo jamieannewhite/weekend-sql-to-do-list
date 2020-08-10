@@ -19,9 +19,9 @@ todoRouter.post('/', (req, res) => {
     let newToDo= req.body;
     console.log('Adding new todo:', newToDo);
     let queryText = `
-    INSERT INTO "todo" ("task_name", "task_type", "task_due", "task_notes", "task_status")
-    VALUES ($1, $2, $3, $4, $5);`;
-    pool.query(queryText, [newToDo.name, newToDo.type, newToDo.due, newToDo.notes, newToDo.status])
+    INSERT INTO "todo" ("task_name", "task_type", "task_due", "task_notes")
+    VALUES ($1, $2, $3, $4);`;
+    pool.query(queryText, [newToDo.name, newToDo.type, newToDo.due, newToDo.notes])
     .then(result => {
       res.sendStatus(201);
     })
